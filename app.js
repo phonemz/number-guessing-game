@@ -21,25 +21,27 @@ submit.addEventListener('click', () => {
     newText.textContent = "Your previous guesses are" // hint text 
     guessOutput.innerHTML = guessInput.value // add the inner text of guess-output p with input value
     hintText.insertBefore(newText, hintText.firstChild)*/ // move the hint text before the guess number
+    const value = parseInt(guessInput.value)
+    console.log(value)
 
-    
-    if (guessInput.value === answer) {
-        console.log("Hello")
+    if (value === answer) {
         alertMessage.textContent = "Congratulations! Your guess is correct."
+    } 
+    else if (value > answer) {
+        alertMessage.textContent = "Your guess is higher than the answer"
+    }
+    else if (value < answer) {
+        alertMessage.textContent = "Your guess is lower than the answer"
     }
     
-    if (guessInput.value > answer) {
-        alertMessage.textContent = 'Your guess is higher than the answer.'
-    }
-    else {
-        alertMessage.textContent = 'Your guess is lower than the answer.'
-    }
+    
 
-    if (guessInput.value > 100) {
+    if (value > 100) {
         alertMessage.textContent = 'Please enter numbers between 0 and 100'
     }
 
-    if (guessInput.value === '') {
+    if (value === '') {
         alertMessage.textContent = 'Please ener a number'
     }
 })
+
