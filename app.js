@@ -4,6 +4,9 @@ const guessInput = document.querySelector("#guessInput")
 const guessOutput = document.querySelector("#guess-output")
 const hintText = document.querySelector('.hint')
 const alertMessage = document.querySelector('#alert-message')
+const previousGuessesAre = document.querySelector('.previous-guesses-are')
+
+let guessCount = 1
 
 function getRandom(a,b) {
     a = Math.ceil(a)
@@ -15,14 +18,13 @@ const answer = getRandom(0, 100)
 console.log(answer)
 
 submit.addEventListener('click', () => {
-    /* const newText = document.createElement("p") //create new p element to display the hint text
-    newText.classList.add("hint-text") // add a class to new p
-    hintText.appendChild(newText) // move the hint text under hint text div
-    newText.textContent = "Your previous guesses are" // hint text 
-    guessOutput.innerHTML = guessInput.value // add the inner text of guess-output p with input value
-    hintText.insertBefore(newText, hintText.firstChild)*/ // move the hint text before the guess number
+
     const value = parseInt(guessInput.value)
-    console.log(value)
+
+    if (guessCount === 1) {
+        previousGuessesAre.textContent = 'Your previous guesses are '
+    }
+    previousGuessesAre.textContent += guessInput.value + ' '     
 
     if (value === answer) {
         alertMessage.textContent = "Congratulations! Your guess is correct."
@@ -43,5 +45,7 @@ submit.addEventListener('click', () => {
     if (value === '') {
         alertMessage.textContent = 'Please ener a number'
     }
+
+    guessCount++
 })
 
