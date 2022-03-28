@@ -52,6 +52,12 @@ h1{
     color: #1d3557;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .hint{
     padding: 30px;
     position: relative;
