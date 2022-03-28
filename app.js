@@ -17,6 +17,7 @@ function getRandom(a,b) {
 }
 
 const answer = getRandom(0, 100)
+console.log(answer)
 
 function stopGame() {
     guessInput.disabled = 'true'
@@ -36,22 +37,17 @@ restart.addEventListener('click', restartGame)
 
 
 function mainFunction() {
+    
     const value = parseInt(guessInput.value)
 
     if (guessCount === 1) {
         previousGuessesAre.textContent = 'Your previous guesses are '
     }
-    previousGuessesAre.textContent += guessInput.value + ' '   
-
-    if (guessCount > 10) {
-        previousGuessesAre.textContent = 'Game Over. Please try again.'
-        stopGame()
-    }
-    
-    
+    previousGuessesAre.textContent += value +' '  
 
     if (value === answer) {
         alertMessage.textContent = "Congratulations! Your guess is correct."
+        alertMessage.style.color = 'yellow'
         stopGame()
     } 
     else if (value > answer) {
@@ -68,6 +64,13 @@ function mainFunction() {
 
     if (value === '') {
         alertMessage.textContent = 'Please ener a number.'
+    }
+
+    if (guessCount > 10) {
+        previousGuessesAre.textContent = 'Game Over. Please try again.'
+        previousGuessesAre.style.color = 'red'
+        alertMessage.textContent = ''
+        stopGame()
     }
 
     guessCount++
