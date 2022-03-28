@@ -42,11 +42,13 @@ function mainFunction() {
         previousGuessesAre.textContent = 'Your previous guesses are '
     }
     previousGuessesAre.textContent += guessInput.value + ' '   
-    
+
     if (guessCount > 10) {
-        alertMessage.textContent = 'Game Over. Please try again.'
+        previousGuessesAre.textContent = 'Game Over. Please try again.'
         stopGame()
     }
+    
+    
 
     if (value === answer) {
         alertMessage.textContent = "Congratulations! Your guess is correct."
