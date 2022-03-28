@@ -52,26 +52,33 @@ function mainFunction() {
     if (value === answer) {
         alertMessage.textContent = "Congratulations! Your guess is correct."
         alertMessage.style.color = 'yellow'
+        previousGuessesAre.style.color = 'azure'
         stopGame()
     } 
     else if (value > answer) {
         alertMessage.textContent = "Your guess is higher than the answer."
+        previousGuessesAre.style.color = 'azure'
+        alertMessage.style.color = 'azure'
     }
     else if (value < answer) {
         alertMessage.textContent = "Your guess is lower than the answer."
+        previousGuessesAre.style.color = 'azure'
+        alertMessage.style.color = 'azure'
     }
 
     if (value > 100) {
         alertMessage.textContent = 'Please enter numbers between 0 and 100.'
-        previousGuessesAre.textContent =''
+        previousGuessesAre.textContent = ''
+        alertMessage.style.color = 'azure'
     }
 
     if (stringInput === '') {
         alertMessage.textContent = 'Please ener a number.'
-        previousGuessesAre.textContent= ''
+        previousGuessesAre.textContent = ''
+        alertMessage.style.color = 'azure'
+
     }
     
-
     if (guessCount > 10) {
         previousGuessesAre.textContent = 'Game Over. Please try again.'
         previousGuessesAre.style.color = 'red'
