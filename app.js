@@ -39,6 +39,10 @@ restart.addEventListener('click', restartGame)
 function mainFunction() {
     
     const value = parseInt(guessInput.value)
+    const stringInput = guessInput.value
+
+    
+
 
     if (guessCount === 1) {
         previousGuessesAre.textContent = 'Your previous guesses are '
@@ -56,15 +60,17 @@ function mainFunction() {
     else if (value < answer) {
         alertMessage.textContent = "Your guess is lower than the answer."
     }
-    
-    
+
     if (value > 100) {
         alertMessage.textContent = 'Please enter numbers between 0 and 100.'
+        previousGuessesAre.textContent =''
     }
 
-    if (value === '') {
+    if (stringInput === '') {
         alertMessage.textContent = 'Please ener a number.'
+        previousGuessesAre.textContent= ''
     }
+    
 
     if (guessCount > 10) {
         previousGuessesAre.textContent = 'Game Over. Please try again.'
